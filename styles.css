@@ -1,0 +1,698 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #161616;
+    color: #f4ece5;
+    overflow-x: hidden;
+}
+
+/* Animasi untuk fade-in saat scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    color: #f4ece5;
+    text-decoration: none;
+    font-family: 'Fragment Mono', monospace;
+    font-size: 14px;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #cc1114;
+}
+
+.nav-links a.active {
+    color: #cc1114;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #cc1114;
+    transform: scaleX(1);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #cc1114;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 2px;
+    background-color: #f4ece5;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 10px);
+    background-color: #cc1114;
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -10px);
+    background-color: #cc1114;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hero Section */
+.hero {
+    padding: 20px 0 100px;
+    position: relative;
+}
+
+.name {
+    font-size: 256px;
+    font-weight: 400;
+    line-height: 295px;
+    color: #f4ece5;
+    margin-bottom: -40px;
+}
+
+.surname {
+    font-size: 256px;
+    font-weight: 400;
+    line-height: 295px;
+    color: #f4ece5;
+    text-align: right;
+}
+
+.title {
+    margin-top: 40px;
+    position: relative;
+}
+
+.red-line {
+    width: 399px;
+    height: 2px;
+    background-color: #cc1114;
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.designer-title {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 24px;
+    margin-left: 420px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Skills Section */
+.skills {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding-bottom: 100px;
+}
+
+.skills-column {
+    width: 30%;
+}
+
+.skills-title {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.skills-list {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 20px;
+    line-height: 24px;
+    white-space: pre-line;
+}
+
+.about-me {
+    text-align: right;
+    font-family: 'Fragment Mono', monospace;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.project-text {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 20px;
+}
+
+.red-line-vertical {
+    width: 2px;
+    height: 358px;
+    background-color: #cc1114;
+    margin-top: 20px;
+}
+
+/* Portfolio Section */
+.portfolio-title {
+    font-size: 192px;
+    font-weight: 400;
+    line-height: 221px;
+    margin-bottom: 50px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 100px;
+}
+
+.portfolio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item img:hover {
+    transform: scale(1.05);
+}
+
+.portfolio-item-title {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Why Me Section */
+.why-me-title {
+    font-size: 192px;
+    font-weight: 400;
+    line-height: 221px;
+    text-align: right;
+    margin-bottom: 50px;
+}
+
+.why-me-text {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 20px;
+    line-height: 24px;
+    max-width: 1088px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+/* Testimonials Section */
+.testimonials-title {
+    font-size: 192px;
+    font-weight: 400;
+    line-height: 221px;
+    margin-bottom: 50px;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 100px;
+}
+
+.testimonial {
+    padding: 20px 0;
+}
+
+.testimonial-text {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 20px;
+    line-height: 24px;
+    color: #f4ece5;
+    white-space: pre-line;
+}
+
+/* Contact Section */
+.contact-title {
+    font-size: 192px;
+    font-weight: 400;
+    line-height: 221px;
+    margin-bottom: 50px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.contact-photo {
+    width: 312px;
+    height: 365px;
+    background-color: #fff;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contact-photo img {
+    width: 100%;
+    height: auto;
+}
+
+.hire-me {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.hire-me-text {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 20px;
+    margin-left: 10px;
+    color: #f4ece5;
+}
+
+.red-line-horizontal {
+    width: 534px;
+    height: 2px;
+    background-color: #cc1114;
+    margin-left: 50px;
+}
+
+/* Footer */
+footer {
+    background-color: #d9d9d9;
+    padding: 30px 0;
+    color: #161616;
+    margin-top: 100px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo img {
+    margin-right: 10px;
+}
+
+.footer-section {
+    margin-right: 30px;
+}
+
+.footer-title {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 16px;
+    line-height: 24px;
+    white-space: pre-line;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-item img {
+    margin-right: 15px;
+}
+
+.contact-text {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    font-family: 'Fragment Mono', monospace;
+    font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+    .name, .surname {
+        font-size: 180px;
+        line-height: 220px;
+    }
+    
+    .portfolio-title, .why-me-title, .testimonials-title, .contact-title {
+        font-size: 140px;
+        line-height: 160px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .hire-me {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .name, .surname {
+        font-size: 140px;
+        line-height: 160px;
+    }
+    
+    .portfolio-title, .why-me-title, .testimonials-title, .contact-title {
+        font-size: 100px;
+        line-height: 120px;
+    }
+    
+    .red-line {
+        width: 200px;
+    }
+    
+    .designer-title {
+        margin-left: 220px;
+    }
+    
+    .red-line-horizontal {
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .name, .surname {
+        font-size: 100px;
+        line-height: 120px;
+    }
+    
+    .portfolio-title, .why-me-title, .testimonials-title, .contact-title {
+        font-size: 80px;
+        line-height: 100px;
+    }
+    
+    .skills {
+        flex-direction: column;
+    }
+    
+    .skills-column {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .red-line, .red-line-vertical, .red-line-horizontal {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-section {
+        margin-bottom: 30px;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+    }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #161616;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.5s ease;
+        z-index: 99;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links a {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+        transition-delay: 0.2s;
+    }
+    
+    .nav-links.active a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .nav-links.active a:nth-child(1) {
+        transition-delay: 0.3s;
+    }
+    
+    .nav-links.active a:nth-child(2) {
+        transition-delay: 0.4s;
+    }
+    
+    .nav-links.active a:nth-child(3) {
+        transition-delay: 0.5s;
+    }
+    
+    .nav-links a {
+        margin: 15px 0;
+        font-size: 18px;
+    }
+    
+    .designer-title {
+        margin-left: 150px;
+        font-size: 20px;
+    }
+    
+    .red-line {
+        width: 140px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .name, .surname {
+        font-size: 60px;
+        line-height: 80px;
+    }
+    
+    .portfolio-title, .why-me-title, .testimonials-title, .contact-title {
+        font-size: 50px;
+        line-height: 60px;
+    }
+    
+    .designer-title {
+        margin-left: 100px;
+        font-size: 16px;
+    }
+    
+    .red-line {
+        width: 90px;
+    }
+    
+    .hero {
+        padding: 20px 0 60px;
+    }
+    
+    .contact-photo {
+        width: 90%;
+        height: auto;
+    }
+    
+    .nav-links {
+        width: 100%;
+    }
+    
+    .red-line-horizontal {
+        width: 150px;
+        margin-left: 20px;
+    }
+    
+    .contact-content {
+        align-items: center;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .skills-title {
+        font-size: 18px;
+    }
+    
+    .skills-list, .about-me, .project-text {
+        font-size: 16px;
+    }
+    
+    .why-me-text, .testimonial-text, .testimonial-author {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    
+    .portfolio-item-title {
+        font-size: 16px;
+    }
+    
+    .portfolio-grid, .testimonials-grid {
+        gap: 20px;
+    }
+    
+    .red-line-vertical {
+        height: 200px;
+    }
+    
+    .surname {
+        margin-top: -20px;
+    }
+    
+    .testimonial {
+        padding: 10px 0;
+    }
+    
+    .footer-title {
+        font-size: 18px;
+    }
+    
+    .footer-text, .contact-text {
+        font-size: 14px;
+    }
+}
