@@ -7,6 +7,7 @@
     <link rel="icon" href="assets/images/img_vector.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -138,6 +139,41 @@ Product Manager</p>
                     <div class="red-line-horizontal"></div>
                 </div>
             </div>
+            
+            <div class="contact-form-container fade-in">
+                <h3 class="form-title">Kirim Pesan</h3>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="fullName">Nama Lengkap*</label>
+                        <input type="text" id="fullName" name="fullName" maxlength="50">
+                        <span class="error-message" id="fullName-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" maxlength="100">
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Nomor Handphone*</label>
+                        <input type="tel" id="phone" name="phone" maxlength="15">
+                        <span class="error-message" id="phone-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Pesan*</label>
+                        <textarea id="message" name="message" rows="5" maxlength="500"></textarea>
+                        <span class="error-message" id="message-error"></span>
+                        <div class="char-count"><span id="messageCharCount">0</span>/500</div>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Kirim Pesan</button>
+                </form>
+                <div id="formSuccess" class="form-success">
+                    Terima kasih! Pesan Anda telah terkirim.
+                </div>
+            </div>
         </section>
         
         <!-- Footer -->
@@ -189,7 +225,6 @@ contact</p>
         </footer>
     </div>
     
-    <!-- Back to Top Button -->
     <button class="back-to-top">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -197,7 +232,7 @@ contact</p>
         </svg>
     </button>
 
-    <!-- External JavaScript -->
     <script src="script.js"></script>
+    <script src="form-validation.js"></script>
 </body>
 </html>

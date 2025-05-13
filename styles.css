@@ -696,3 +696,123 @@ footer {
         font-size: 14px;
     }
 }
+
+/* Form Styling */
+.contact-form-container {
+    max-width: 800px;
+    margin: 60px auto 20px;
+    padding: 30px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+}
+
+.form-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #f4ece5;
+    border-left: 4px solid #e11414;
+    padding-left: 15px;
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-group:nth-child(4) {
+    grid-column: span 2;
+}
+
+label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #f4ece5;
+}
+
+input, textarea {
+    padding: 12px;
+    border: 1px solid #333;
+    background-color: #252525;
+    color: #f4ece5;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+    font-family: 'Helvetica', sans-serif;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #e11414;
+}
+
+.error-message {
+    color: #e11414;
+    font-size: 14px;
+    margin-top: 5px;
+    height: 20px;
+    display: block;
+}
+
+.form-error input, 
+.form-error textarea {
+    border-color: #e11414;
+}
+
+.char-count {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 14px;
+    color: #999;
+}
+
+.submit-button {
+    background-color: #e11414;
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    grid-column: 2;
+    justify-self: end;
+    margin-top: 15px;
+}
+
+.submit-button:hover {
+    background-color: #b91010;
+}
+
+.form-success {
+    background-color: #1b3a23;
+    color: #63e887;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-group:nth-child(4) {
+        grid-column: 1;
+    }
+    
+    .submit-button {
+        grid-column: 1;
+        width: 100%;
+    }
+}

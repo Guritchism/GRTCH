@@ -1,0 +1,38 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex e69de29..778d9db 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,33 @@[m
+[32m+[m[32m# Mengabaikan file sistem operasi[m
+[32m+[m[32m.DS_Store[m
+[32m+[m[32mThumbs.db[m
+[32m+[m
+[32m+[m[32m# Mengabaikan folder dependensi[m
+[32m+[m[32m/node_modules[m
+[32m+[m[32m/src[m
+[32m+[m
+[32m+[m[32m# Mengabaikan file log[m
+[32m+[m[32m*.log[m
+[32m+[m[32mnpm-debug.log*[m
+[32m+[m[32myarn-debug.log*[m
+[32m+[m[32myarn-error.log*[m
+[32m+[m
+[32m+[m[32m# Mengabaikan file lingkungan lokal[m
+[32m+[m[32m.env[m
+[32m+[m[32m.env.local[m
+[32m+[m[32m.env.development.local[m
+[32m+[m[32m.env.test.local[m
+[32m+[m[32m.env.production.local[m
+[32m+[m
+[32m+[m[32m# Mengabaikan direktori build[m
+[32m+[m[32m/build[m
+[32m+[m[32m/dist[m
+[32m+[m
+[32m+[m[32m# Mengabaikan file konfigurasi IDE/Editor[m
+[32m+[m[32m.idea/[m
+[32m+[m[32m.vscode/[m
+[32m+[m[32m*.suo[m
+[32m+[m[32m*.ntvs*[m
+[32m+[m[32m*.njsproj[m
+[32m+[m[32m*.sln[m
+[32m+[m[32m*.sw?[m

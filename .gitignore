@@ -1,0 +1,33 @@
+# Mengabaikan file sistem operasi
+.DS_Store
+Thumbs.db
+
+# Mengabaikan folder dependensi
+/node_modules
+/src
+
+# Mengabaikan file log
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Mengabaikan file lingkungan lokal
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Mengabaikan direktori build
+/build
+/dist
+
+# Mengabaikan file konfigurasi IDE/Editor
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
